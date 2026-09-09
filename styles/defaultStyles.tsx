@@ -9,13 +9,18 @@ export const defaultStyles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 28,
+    fontSize: 35,
     fontWeight: "bold",
     color: colors.text,
   },
 
   subtitle: {
     fontSize: 16,
+    color: colors.textSecondary,
+  },
+
+  text: {
+    fontSize: 10,
     color: colors.textSecondary,
   },
 
@@ -46,5 +51,11 @@ export const defaultStyles = StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     color: colors.text,
+  },
+
+  scrollView: {
+    flex: 1,
+    backgroundColor: colors.background,
+    padding: 20,
   },
 });
