@@ -36,6 +36,7 @@ export const defaultStyles = StyleSheet.create({
     padding: 12,
     borderRadius: 8,
     alignItems: "center",
+    margin: 10,
   },
 
   buttonText: {
@@ -51,6 +52,20 @@ export const defaultStyles = StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     color: colors.text,
+  },
+
+  textFeild: {
+    borderWidth: 1.5,
+    borderColor: colors.secondary,
+    backgroundColor: colors.background,
+    borderRadius: 12,
+    padding: 5,
+  },
+
+  textFeildText: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: "normal",
   },
 
   scrollView: {

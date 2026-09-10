@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
+import { colors } from "../styles/colors";
 import { defaultStyles } from "../styles/defaultStyles";
 import Button from "../components/Button";
 
@@ -21,7 +22,10 @@ export default function Index() {
         }}
       >
         <Text style={defaultStyles.title}>Movie Tracker</Text>
-        <Button text="customizable MyButton" onPress={() => alert("third")} />
+        <Button
+          text="Create a Movie Card!"
+          onPress={() => alert("open a TextFeild")}
+        />
       </View>
     </ScrollView>
   );
