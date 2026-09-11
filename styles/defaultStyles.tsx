@@ -60,9 +60,11 @@ export const defaultStyles = StyleSheet.create({
     backgroundColor: colors.background,
     borderRadius: 12,
     padding: 5,
+
   },
 
-  textFeildText: {
+  textFeildInputText: {
+    // this is for the user's input
     color: colors.text,
     fontSize: 15,
     fontWeight: "normal",

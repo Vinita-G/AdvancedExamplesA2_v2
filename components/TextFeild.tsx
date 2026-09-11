@@ -5,30 +5,31 @@ import {
   View,
   TouchableHighlight,
 } from "react-native";
-import React from "react";
-
+import React, { useState } from "react";
 import { defaultStyles } from "../styles/defaultStyles";
 import { colors } from "../styles/colors";
 
 type textFeildPropTypes = {
   placeholder?: string;
   placeholderTextColor?: string;
-  value: string;
   color?: string;
   fontSize?: number;
   fontWeight?: "normal" | "bold";
   backgroundColor?: string;
   text?: "color";
-  onChangeText: () => void;
+  onChangeText?: () => void;
 };
 
 const textFeild: React.FC<textFeildPropTypes> = ({
-  color = defaultStyles.textFeildText.color,
-  fontSize = defaultStyles.textFeildText.fontSize,
-  fontWeight = defaultStyles.textFeildText.fontWeight,
+  color = defaultStyles.textFeildInputText.color,
+  fontSize = defaultStyles.textFeildInputText.fontSize,
+  fontWeight = defaultStyles.textFeildInputText.fontWeight,
   backgroundColor = defaultStyles.textFeild.backgroundColor,
-  onChangeText,
+  placeholder = "Enter here",
+  placeholderTextColor = defaultStyles.text.color,
 }) => {
+  const [value, setValue] = useState<string>("");
+
   return (
     <TextInput
       style={[
@@ -41,8 +42,10 @@ const textFeild: React.FC<textFeildPropTypes> = ({
           fontWeight: fontWeight,
         },
       ]}
-      onChangeText={onChangeText}
-      placeholderTextColor="lightgray"
+      value={value}
+      placeholder={placeholder}
+      placeholderTextColor={placeholderTextColor}
+      onChangeText={(newValue) => setValue(newValue)}
     ></TextInput>
   );
 };

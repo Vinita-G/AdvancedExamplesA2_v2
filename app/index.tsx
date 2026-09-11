@@ -10,6 +10,7 @@ import {
 import { colors } from "../styles/colors";
 import { defaultStyles } from "../styles/defaultStyles";
 import Button from "../components/Button";
+import TextFeild from "../components/TextFeild";
 
 export default function Index() {
   return (
@@ -26,6 +27,7 @@ export default function Index() {
           text="Create a Movie Card!"
           onPress={() => alert("open a TextFeild")}
         />
+        <TextFeild />
       </View>
     </ScrollView>
   );
