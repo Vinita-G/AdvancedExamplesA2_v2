@@ -17,6 +17,7 @@ export const defaultStyles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     color: colors.textSecondary,
+    marginBottom: 8,
   },
 
   text: {
@@ -60,7 +61,7 @@ export const defaultStyles = StyleSheet.create({
     backgroundColor: colors.background,
     borderRadius: 12,
     padding: 5,
-
+    marginBottom: 15,
   },
 
   textFeildInputText: {

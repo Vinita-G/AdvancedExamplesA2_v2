@@ -1,13 +1,9 @@
+import React from "react";
 import {
-  StyleSheet,
-  Text,
   TextInput,
-  View,
-  TouchableHighlight,
+  View
 } from "react-native";
-import React, { useState } from "react";
 import { defaultStyles } from "../styles/defaultStyles";
-import { colors } from "../styles/colors";
 
 type textFeildPropTypes = {
   placeholder?: string;
@@ -16,8 +12,10 @@ type textFeildPropTypes = {
   fontSize?: number;
   fontWeight?: "normal" | "bold";
   backgroundColor?: string;
-  text?: "color";
-  onChangeText?: () => void;
+  text?: string;
+  onChangeText?: (newValue: string) => void;
+  value: string;
+  width?: number | string;
 };
 
 const textFeild: React.FC<textFeildPropTypes> = ({
@@ -27,11 +25,12 @@ const textFeild: React.FC<textFeildPropTypes> = ({
   backgroundColor = defaultStyles.textFeild.backgroundColor,
   placeholder = "Enter here",
   placeholderTextColor = defaultStyles.text.color,
+  value,
+  onChangeText,
 }) => {
-  const [value, setValue] = useState<string>("");
-
   return (
-    <TextInput
+    <View style = {{ width: "80%" }}>
+      <TextInput
       style={[
         defaultStyles.textFeild,
         {
@@ -42,11 +41,13 @@ const textFeild: React.FC<textFeildPropTypes> = ({
           fontWeight: fontWeight,
         },
       ]}
-      value={value}
-      placeholder={placeholder}
-      placeholderTextColor={placeholderTextColor}
-      onChangeText={(newValue) => setValue(newValue)}
-    ></TextInput>
+      value = {value}
+      placeholder = {placeholder}
+      placeholderTextColor = {placeholderTextColor}
+      onChangeText = {onChangeText}
+      >
+      </TextInput> 
+    </View>
   );
 };
 

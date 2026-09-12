@@ -1,18 +1,17 @@
+import MovieQuesions from "@/components/MovieQuesions";
+import TextFeild from "@/components/TextFeild";
+import React, { useState } from "react";
 import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableHighlight,
-  Alert,
-  Image,
   ScrollView,
+  Text,
+  View
 } from "react-native";
-import { colors } from "../styles/colors";
-import { defaultStyles } from "../styles/defaultStyles";
 import Button from "../components/Button";
-import TextFeild from "../components/TextFeild";
+import { defaultStyles } from "../styles/defaultStyles";
 
 export default function Index() {
+  // 1. Track visibility state (true/false)
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <ScrollView style={defaultStyles.scrollView}>
       <View
@@ -25,9 +24,13 @@ export default function Index() {
         <Text style={defaultStyles.title}>Movie Tracker</Text>
         <Button
           text="Create a Movie Card!"
-          onPress={() => alert("open a TextFeild")}
-        />
-        <TextFeild />
+          onPress={() => setIsVisible(!isVisible)}>
+        </Button>
+
+        <TextFeild value = "Hello, World!"/>
+
+        {/* Open a questionaire to create a movie card */}
+        {isVisible && (<MovieQuesions />)}
       </View>
     </ScrollView>
   );
