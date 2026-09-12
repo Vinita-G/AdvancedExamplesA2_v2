@@ -3,17 +3,21 @@ import {
     Text,
     View
 } from "react-native";
+import Button from "../components/Button";
+import { MovieData } from "../components/MovieCard";
 import TextFeild from "../components/TextFeild";
 import { defaultStyles } from "../styles/defaultStyles";
 
 type questionPropsType = {
   color?: string;
   backgroundColor?: string;
+  onSubmit: (movie: MovieData) => void;
 };
 
 const MovieQuesions: React.FC<questionPropsType> = ({
     color = defaultStyles.buttonText.color,
     backgroundColor = defaultStyles.card.backgroundColor,
+    onSubmit,
 }) => {
     const [movieName, setMovieName] = useState<string>("");
     const [movieGenre, setMovieGenre] = useState<string>("");
@@ -45,7 +49,17 @@ const MovieQuesions: React.FC<questionPropsType> = ({
             <Text style={defaultStyles.subtitle}>Movie Review:</Text>
             <TextFeild value={movieReview} onChangeText = {setMovieReview} />
 
-            <Text style={defaultStyles.text}>Movie Name: {movieName}</Text>
+            <Button
+                text="Create a Movie Card!"
+                onPress={() =>
+                    onSubmit({
+                        name: movieName,
+                        genre: movieGenre,
+                        rating: movieRating,
+                        review: movieReview,
+                    })
+                }>
+            </Button>
         </View>
     );
 };

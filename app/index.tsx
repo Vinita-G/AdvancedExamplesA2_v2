@@ -1,5 +1,5 @@
+import MovieCard, { MovieData } from "@/components/MovieCard";
 import MovieQuesions from "@/components/MovieQuesions";
-import TextFeild from "@/components/TextFeild";
 import React, { useState } from "react";
 import {
   ScrollView,
@@ -12,6 +12,7 @@ import { defaultStyles } from "../styles/defaultStyles";
 export default function Index() {
   // 1. Track visibility state (true/false)
   const [isVisible, setIsVisible] = useState(false);
+  const [movie, setMovie] = useState<MovieData | null>(null);
   return (
     <ScrollView style={defaultStyles.scrollView}>
       <View
@@ -22,15 +23,25 @@ export default function Index() {
         }}
       >
         <Text style={defaultStyles.title}>Movie Tracker</Text>
+
         <Button
           text="Create a Movie Card!"
           onPress={() => setIsVisible(!isVisible)}>
         </Button>
 
-        <TextFeild value = "Hello, World!"/>
-
         {/* Open a questionaire to create a movie card */}
-        {isVisible && (<MovieQuesions />)}
+        {isVisible && (
+          <MovieQuesions
+            onSubmit={(newMovie) => {
+              setMovie(newMovie);
+              setIsVisible(false);
+            }}
+          />
+        )}
+
+        {movie && (
+          <MovieCard {...movie} onDelete={() => setMovie(null)} />
+        )}
       </View>
     </ScrollView>
   );

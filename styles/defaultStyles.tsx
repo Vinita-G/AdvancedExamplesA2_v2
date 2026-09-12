@@ -32,6 +32,13 @@ export const defaultStyles = StyleSheet.create({
     marginVertical: 8,
   },
 
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: colors.text,
+    marginBottom: 4,
+  },
+
   button: {
     backgroundColor: colors.primary,
     padding: 12,
